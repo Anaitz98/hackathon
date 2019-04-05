@@ -37,7 +37,7 @@ def on_message(client, userdata, msg):
             point['measurement'] = 'preassure'
             tags = {"host": "server01", "region": "us-west"}
             point['tags'] = tags
-            point['time'] = json_str['timestamp']
+            point['time'] = json_str['timestamp']*1000000000
             point['fields'] = {'value': json_str['value']}
             point_list.append(point)
         elif 'temp' == json_str['type']:
@@ -45,7 +45,7 @@ def on_message(client, userdata, msg):
             point['measurement'] = 'temp'
             tags = {"host": "server01", "region": "us-west"}
             point['tags'] = tags
-            point['time'] = json_str['timestamp']
+            point['time'] = json_str['timestamp']*1000000000
             point['fields'] = {'value': json_str['value']}
             point_list.append(point)
         elif 'speed_blade'== json_str['type']:
@@ -53,7 +53,7 @@ def on_message(client, userdata, msg):
             point['measurement'] = 'speed_blade'
             tags = {"host": "server01", "region": "us-west"}
             point['tags'] = tags
-            point['time'] = json_str['timestamp']
+            point['time'] = json_str['timestamp']*1000000000
             point['fields'] = {'value': json_str['value']}
             point_list.append(point)
         elif 'speed_wind' == json_str['type']:
@@ -61,15 +61,15 @@ def on_message(client, userdata, msg):
             point['measurement'] = 'speed_wind'
             tags = {"host": "server01", "region": "us-west"}
             point['tags'] = tags
-            point['time'] = {'timestamp': json_str['timestamp']}
-            point['fields'] = json_str['timestamp']
+            point['time'] = json_str['timestamp']*1000000000
+            point['fields'] = {'value': json_str['value']}
             point_list.append(point)
         elif 'energy' == json_str['type']:
             point = {}
             point['measurement'] = 'energy'
             tags = {"host": "server01", "region": "us-west"}
             point['tags'] = tags
-            point['time'] =  json_str['timestamp']
+            point['time'] =  json_str['timestamp']*1000000000
             point['fields'] = {'value': json_str['value']}
             point_list.append(point)
         elif 'alarm' == json_str['type']:
@@ -77,7 +77,7 @@ def on_message(client, userdata, msg):
             point['measurement'] = 'alarm'
             tags = {"host": "server01", "region": "us-west"}
             point['tags'] = tags
-            point['time'] = json_str['timestamp']
+            point['time'] = json_str['timestamp']*1000000000
             point['fields'] = {'value': json_str['value']}
             point_list.append(point)
 
